@@ -1,0 +1,45 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: bills-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword  # Root password
+      MYSQL_DATABASE: bills_db           # Database name
+      MYSQL_USER: bills_user             # Username
+      MYSQL_PASSWORD: securepassword     # User password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  bills-api:
+    image: gcr.io/billsapi/bills-rest-server
+    container_name: bills-api
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: local
+      SPRING_DATASOURCE_URL: jdbc:mysql://bills-db:3306/bills_db
+      SPRING_DATASOURCE_USERNAME: bills_user
+      SPRING_DATASOURCE_PASSWORD: securepassword
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - app-network
+    restart: always  # Ensures the app retries if it starts before the database is healthy
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db_data:
