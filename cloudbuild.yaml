@@ -1,0 +1,5 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/billspai/bills-rest-server-gcp:latest", "."]
+images:
+  - "gcr.io/billsapi/bills-rest-server-gcp:latest"
