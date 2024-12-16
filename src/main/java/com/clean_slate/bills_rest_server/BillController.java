@@ -7,7 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/bills")
-@CrossOrigin(origins = "http://localhost:4200") // Allow requests from Angular
+@CrossOrigin(origins = "https://frontend-dot-your-project-id.ue.r.appspot.com") // Allow requests from Angular
 public class BillController {
   private final BillService billService;
 
