@@ -10,9 +10,9 @@
 	</parent>
 	<groupId>com.clean-slate</groupId>
 	<artifactId>bills-rest-server</artifactId>
-	<version>0.0.7-SNAPSHOT</version>
+	<version>0.0.9-SNAPSHOT</version>
 	<name>bills-rest-server</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Testing GCP profile</description>
 	<url/>
 	<licenses>
 		<license/>
