@@ -11,6 +11,8 @@ For local testing
 Activate Profiles Based on Environment
 Spring Boot can use the spring.profiles.active property to determine which profile-specific configuration to load.
 
+Defaulted to gcp profile
+
 
 ```bash
 mvn spring-boot:run -Dspring.profiles.active=local
@@ -28,5 +30,7 @@ mvn clean install
 Deploy to GCP with the correct profile:
 
 ```bash
-mvn clean package -Dspring.profiles.active=gcp
+mvn clean package
+cd target
+gcloud app deploy bills-rest-server-0.0.9-SNAPSHOT.jar
 ```

@@ -1,6 +1,8 @@
-package com.clean_slate.bills_rest_server;
+package com.clean_slate.bills_rest_server.service;
 
 
+import com.clean_slate.bills_rest_server.model.Bill;
+import com.clean_slate.bills_rest_server.repository.BillRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
