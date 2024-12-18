@@ -27,7 +27,7 @@
 <body>
 <h2>Welcome to the Home Page!</h2>
 
-<p>Hello, <span th:text="${#authentication != null ? #authentication.name : 'Guest'}">User</span>!</p>
+<p>Hello, <span th:text="${username}">User</span>!</p>
 
 <form th:action="@{/logout}" method="post">
     <button type="submit">Logout</button>
