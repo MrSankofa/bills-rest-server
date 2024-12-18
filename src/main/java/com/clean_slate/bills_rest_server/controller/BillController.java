@@ -1,6 +1,5 @@
 package com.clean_slate.bills_rest_server.controller;
 
-
 import com.clean_slate.bills_rest_server.service.BillService;
 import com.clean_slate.bills_rest_server.model.Bill;
 import org.springframework.web.bind.annotation.*;
