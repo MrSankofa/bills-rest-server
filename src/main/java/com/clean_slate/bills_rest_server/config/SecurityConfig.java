@@ -23,13 +23,13 @@ public class SecurityConfig {
         .authorizeHttpRequests(authorize ->
             authorize
                 .requestMatchers("/auth/register", "/auth/login").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().authenticated() // all other pages require authentication
         )
         .formLogin(form ->
             form
                 .loginPage("/auth/login")
                 .loginProcessingUrl("/login") // Default Spring Security POST endpoint
-                .defaultSuccessUrl("/home", true)
+                .defaultSuccessUrl("/home", true) // Redirect to /home after login
                 .failureUrl("/auth/login?error=true")
                 .permitAll()
         )

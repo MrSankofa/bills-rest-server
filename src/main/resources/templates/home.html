@@ -1,6 +1,23 @@
 <!--<h1>Welcome to the Home Page!</h1>-->
 <!--<a href="/logout">Logout</a>-->
 
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Home</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h2>Welcome to the Home Page!</h2>-->
+
+<!--<p>Hello, <span th:text="${#authentication.name}">User</span>!</p>-->
+
+<!--<form th:action="@{/logout}" method="post">-->
+<!--    <button type="submit">Logout</button>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -10,7 +27,7 @@
 <body>
 <h2>Welcome to the Home Page!</h2>
 
-<p>Hello, <span th:text="${#authentication.name}">User</span>!</p>
+<p>Hello, <span th:text="${#authentication != null ? #authentication.name : 'Guest'}">User</span>!</p>
 
 <form th:action="@{/logout}" method="post">
     <button type="submit">Logout</button>
